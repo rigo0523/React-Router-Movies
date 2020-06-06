@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useParams } from "react-router-dom"
 
 const Movie = (props) => {
   const [movie, setMovie] = useState();
+  const params = useParams();
+  const id = params.id;
+  console.log(params, 'this is params')
  
   useEffect(() => {
-    const id = 1;
-    // change ^^^ that line and grab the id from the URL
+    
+    //moving CONST ID outside of useEffect so I can add ID as a depenency
+    // change ^^^ that line and grab the id from the URL - 
     // You will NEED to add a dependency array to this effect hook
 
        axios
@@ -18,7 +23,7 @@ const Movie = (props) => {
           console.error(error);
         });
 
-  },[]);
+  },[id]);
   
   // Uncomment this only when you have moved on to the stretch goals
   // const saveMovie = () => {
