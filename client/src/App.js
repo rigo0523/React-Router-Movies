@@ -10,7 +10,7 @@ const App = () => {
   useEffect(() => {
     const getMovies = () => {
       axios
-        .get('http://localhost:5000/api/movies')
+        .get('http://localhost:5000/api/movies   ')
         .then(response => {
           setMovieList(response.data);
         })
